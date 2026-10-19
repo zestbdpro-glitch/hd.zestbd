@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="68" viewBox="0 0 260 68" fill="none">
+  <title>zestbd</title>
+  <rect x="2" y="3" width="62" height="62" rx="10" fill="#111513" stroke="#D4AF62" stroke-width="2"/>
+  <path d="M19 21H46L20 47H47" stroke="#F3CD83" stroke-width="6" stroke-linecap="square" stroke-linejoin="bevel"/>
+  <path d="M43 12C51 11 56 13 55 20C48 22 43 19 43 12Z" fill="#83AE88"/>
+  <text x="80" y="48" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="700"><tspan fill="#F3CD83">zest</tspan><tspan fill="#83AE88">bd</tspan></text>
+</svg>

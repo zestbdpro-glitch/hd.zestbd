@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>zestbd | Store Admin</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png" />
+  </head>
+  <body>
+    <div class="auth-shell" data-auth>
+      <div class="auth-panel">
+        <a class="auth-brand" href="../"><img src="../assets/brand/zestbd-mark.svg" width="28" height="28" alt="" />zestbd<span>Admin</span></a>
+        <h1 data-auth-title>Sign In</h1>
+        <form data-login-form>
+          <label>Email<input type="email" name="email" required autocomplete="username" /></label>
+          <label>Password<input type="password" name="password" required maxlength="72" autocomplete="current-password" /></label>
+          <label data-setup-field hidden>Setup token<input type="password" name="setupToken" autocomplete="off" /></label>
+          <button class="button primary" type="submit" data-login-button><i data-lucide="log-in"></i><span>Sign In</span></button>
+        </form>
+        <p class="message" data-auth-message role="status" aria-live="polite">Connecting...</p>
+      </div>
+    </div>
+
+    <div class="app-shell" data-app hidden>
+      <aside class="sidebar">
+        <a class="admin-brand" href="../" target="_blank" rel="noopener"><img src="../assets/brand/zestbd-mark.svg" width="24" height="24" alt="" /> <span data-admin-brand>zestbd</span><small>Store Admin</small></a>
+        <nav aria-label="Admin navigation">
+          <button type="button" data-tab="orders" class="active"><i data-lucide="shopping-bag"></i><span>Orders</span></button>
+          <button type="button" data-tab="product"><i data-lucide="package"></i><span>Product</span></button>
+          <button type="button" data-tab="media"><i data-lucide="images"></i><span>Media</span></button>
+          <button type="button" data-tab="website"><i data-lucide="file-text"></i><span>Website Content</span></button>
+          <button type="button" data-tab="delivery"><i data-lucide="truck"></i><span>Delivery</span></button>
+          <button type="button" data-tab="account"><i data-lucide="user-round"></i><span>Account</span></button>
+        </nav>
+        <div class="sidebar-bottom"><span data-admin-email></span><button class="sign-out" type="button" data-logout><i data-lucide="log-out"></i><span>Sign Out</span></button></div>
+      </aside>
+
+      <main class="workspace">
+        <header class="workspace-header"><h1 data-page-title>Orders</h1><a class="button" href="../" target="_blank" rel="noopener"><i data-lucide="external-link"></i><span>View Store</span></a></header>
+        <p class="message app-message" data-message role="status" aria-live="polite"></p>
+
+        <section data-panel="orders">
+          <div class="stats"><div><span>Orders</span><strong data-stat="total">0</strong></div><div><span>Pending</span><strong data-stat="pending">0</strong></div><div><span>Delivered</span><strong data-stat="delivered">0</strong></div><div><span>Order Value</span><strong data-stat="orderValue">0</strong></div></div>
+          <form class="order-toolbar" data-search-form><label class="search-field"><i data-lucide="search"></i><input type="search" name="search" placeholder="Name, phone, or reference" aria-label="Search orders" maxlength="120" /></label><select name="status" aria-label="Filter order status"><option value="">All Statuses</option><option value="pending">Pending</option><option value="confirmed">Confirmed</option><option value="shipped">Shipped</option><option value="delivered">Delivered</option><option value="cancelled">Cancelled</option></select><button class="icon-button" type="submit" title="Search orders" aria-label="Search orders"><i data-lucide="search"></i></button><button class="icon-button" type="button" data-refresh title="Refresh orders" aria-label="Refresh orders"><i data-lucide="refresh-cw"></i></button><button class="icon-button" type="button" data-export title="Export all orders to CSV" aria-label="Export all orders to CSV"><i data-lucide="download"></i></button></form>
+          <div class="table-wrap"><table><thead><tr><th>Reference</th><th>Customer</th><th>Product</th><th>Total</th><th>Status</th><th>Date</th><th></th></tr></thead><tbody data-orders></tbody></table></div>
+          <div class="pagination"><span data-order-count>Loading orders...</span><div><button class="icon-button" type="button" data-prev title="Previous page" aria-label="Previous page"><i data-lucide="chevron-left"></i></button><span data-page-count>1 / 1</span><button class="icon-button" type="button" data-next title="Next page" aria-label="Next page"><i data-lucide="chevron-right"></i></button></div></div>
+        </section>
+
+        <section data-panel="product" hidden><form data-product-form></form></section>
+        <section data-panel="media" hidden><form data-media-form></form></section>
+        <section data-panel="website" hidden><form data-website-form></form></section>
+        <section data-panel="delivery" hidden><form data-delivery-form></form></section>
+        <section data-panel="account" hidden>
+          <form class="account-form" data-password-form><h2>Change Password</h2><label>Current password<input type="password" name="currentPassword" required autocomplete="current-password" maxlength="72" /></label><label>New password<input type="password" name="newPassword" required minlength="12" maxlength="72" autocomplete="new-password" /></label><label>Confirm new password<input type="password" name="confirmPassword" required minlength="12" maxlength="72" autocomplete="new-password" /></label><button class="button primary" type="submit"><i data-lucide="save"></i><span>Update Password</span></button></form>
+        </section>
+      </main>
+    </div>
+    <dialog class="order-dialog" data-order-dialog><div class="dialog-heading"><h2 data-detail-heading>Order Details</h2><button class="icon-button" type="button" data-close-dialog title="Close order details" aria-label="Close order details"><i data-lucide="x"></i></button></div><div data-order-detail></div><form class="status-form" data-status-form><label>Order status<select name="status" required></select></label><button class="button primary" type="submit"><i data-lucide="save"></i><span>Update Status</span></button></form><p class="message" data-dialog-message role="status"></p></dialog>
+    <script type="module" src="../src/admin/main.js"></script>
+  </body>
+</html>
